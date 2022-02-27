@@ -1,0 +1,34 @@
+/////////////////	New and Deletes		///////////////////////////////
+
+	// On Stack
+	Zombie	zomb1 = Zombie("Tom");
+
+	// On Heap/Allocated
+	Zombie	*zomb2 = new Zombie("Jean");
+
+	//Heap freed
+	delete zomb2;
+
+	// Stack freed
+	return (0);
+
+//////////////////	   Refs vs Ptrs	  ///////////////////////////////
+
+Use referencies (&) when your Object IS DEFINED AND DOES NOT CHANGE
+Use Pointers (*) when your Object WON'T BE DEFINED AND WILL CHANGE
+
+/////////////////////	IFSTREAMS	/////////////////////////////////
+
+<fstream>
+
+std::ifstream	ifs("file")
+int				n1;
+int				n2;
+
+ifs >> n1 >> n2
+ifs.close()
+
+std::ofstream	ofs("file.out")
+
+ofs << "some kinda text" << std::endl
+ofs.close()
