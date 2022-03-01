@@ -1,10 +1,9 @@
 # Project compilation files and directories
 
-NAME                    =   brainz
+NAME                    =   karenfilter
 
 SRCS                    =   main.cpp        \
-							Zombie.cpp      \
-							ZombieHorde.cpp \
+							Karen.cpp
 
 SRCSFD					=	srcs/
 OBJSFD					=	objs/

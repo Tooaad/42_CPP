@@ -1,16 +1,14 @@
 # Project compilation files and directories
 
-NAME           			=	phonebook
+NAME           			=	account
 
-C_PHONEBOOK		        =  	main.cpp 		\
-							PhoneBook.cpp	\
-							Contact.cpp		\
+C_ACCOUNT		        =  	tests.cpp 		\
+							Account.cpp		\
 
 SRCSFD          =    srcs/
 OBJSFD          =    objs/
-HDR_INC         =    -I./includes
 
-OBJS_PHONEBOOK     =    $(addprefix $(SRCSFD), $(C_PHONEBOOK:.c=.o))
+OBJS_ACCOUNT     =    $(addprefix $(SRCSFD), $(C_ACCOUNT:.c=.o))
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Compilation
@@ -29,23 +27,18 @@ all: project $(NAME)
 project:
 	@echo "Checking project ..."
 
-projectb:
-	@echo "Checking project bonus ..."
-
 $(OBJSFD):
 	@mkdir $@
 	@echo "\t[ $(GREEN)✔$(NONE) ] $@ directory"
 
-$(NAME): $(OBJSFD) $(SRCS_PHONEBOOK)
-	@clang++ $(CFLAGS) $(OBJS_PHONEBOOK) -o phonebook
-	@echo "\t[ $(GREEN)✔$(NONE) ] phonebook executable"
+$(NAME): $(OBJSFD) $(SRCS_ACCOUNT)
+	@clang++ $(CFLAGS) $(OBJS_ACCOUNT) -o account
+	@echo "\t[ $(GREEN)✔$(NONE) ] account executable"
 
 $(OBJSFD)%.o: $(SRCSFD)%.c
 	@clang++ $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "\t[ $(GREEN)✔$(NONE) ] $@ object"
 
-bonus: projectb $(NAME)
-	@echo "... bonus project ready"
 
 clean:
 	@echo "Cleaning project ..."
@@ -53,8 +46,8 @@ clean:
 	@echo "\t[ $(RED)✗$(NONE) ] Objects directory"
 
 fclean: clean
-	@/bin/rm -f philo
-	@echo "\t[ $(RED)✗$(NONE) ] philo executable"
+	@/bin/rm -f account
+	@echo "\t[ $(RED)✗$(NONE) ] account executable"
 
 re: fclean all
 

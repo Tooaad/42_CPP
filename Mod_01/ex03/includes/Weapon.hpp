@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:21:11 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/02/27 13:37:10 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:25:35 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ public:
 	Weapon(std::string weapon_name);
 	~Weapon();
 
-	std::string getType(void);
+	std::string const& getType(void);
 	void		setType(std::string weapon_name);
-
 
 };
 

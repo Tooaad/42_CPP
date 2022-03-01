@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 11:47:44 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/02/27 13:35:28 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:26:49 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main(void)
 		HumanA bob("Bob", club);
 		bob.attack();
 		club.setType("some other type of club");
-		std::cout << club.getType() << std::endl;
 		
 		bob.attack();
 	}

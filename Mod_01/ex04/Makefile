@@ -1,10 +1,8 @@
 # Project compilation files and directories
 
-NAME                    =   brainz
+NAME                    =   replace
 
-SRCS                    =   main.cpp        \
-							Zombie.cpp      \
-							ZombieHorde.cpp \
+SRCS                    =   main.cpp		
 
 SRCSFD					=	srcs/
 OBJSFD					=	objs/

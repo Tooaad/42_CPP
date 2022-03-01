@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:20:12 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/02/27 13:37:08 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:26:29 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Weapon::~Weapon()
 {
 }
 
-std::string	Weapon::getType(void)
+std::string const&	Weapon::getType(void)
 {
 	return this->type;
 }
