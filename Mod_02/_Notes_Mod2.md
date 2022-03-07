@@ -5,3 +5,12 @@
 ###### Overload ######
 
 - You can redifine many operators unless ('.' '::' '?:' 'sizeof')
+
+
+###### FROM NOW ON... ######
+
+- Our files must contain:
+	- A Constructor
+	- A Destructor
+	- A Copy Constructor
+	- An Operator Overload = 

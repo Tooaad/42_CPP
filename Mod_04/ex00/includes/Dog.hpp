@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 18:02:53 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 13:45:01 by gpernas-         ###   ########.fr       */
+/*   Created: 2022/03/04 12:01:40 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/06 13:20:50 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef DOG_H
+# define DOG_H
 
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "Animal.hpp"
 
-class ClapTrap
-{
-protected:
+class Dog : public Animal {
 
-	std::string		name;
-	int				hitPoints;
-	int				energyPoints;
-	int				attackDamage;
-	
 public:
 
-	ClapTrap();
-	ClapTrap(std::string name_);
-	ClapTrap(ClapTrap const & claptrap);
-	ClapTrap&		operator=(ClapTrap const & claptrap);
-	virtual ~ClapTrap();
-
-	void			attack(std::string const & target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
-	
-	
-
+	Dog();
+	Dog(Dog const & dog_);
+	~Dog();
+		
+	virtual void		makeSound(void) const;
 };
+
 
 #endif

@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 18:02:53 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 13:45:01 by gpernas-         ###   ########.fr       */
+/*   Created: 2022/03/04 12:01:37 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/04 13:22:28 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef WRONGANIMAL_H
+# define WRONGANIMAL_H
 
 #include <iostream>
 #include <string>
 #include <sstream>
 
-class ClapTrap
-{
+class WrongAnimal {
+	
 protected:
 
-	std::string		name;
-	int				hitPoints;
-	int				energyPoints;
-	int				attackDamage;
-	
+	std::string type;
+
 public:
 
-	ClapTrap();
-	ClapTrap(std::string name_);
-	ClapTrap(ClapTrap const & claptrap);
-	ClapTrap&		operator=(ClapTrap const & claptrap);
-	virtual ~ClapTrap();
-
-	void			attack(std::string const & target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
+	WrongAnimal();
+	WrongAnimal(std::string type_);
+	WrongAnimal(WrongAnimal const & wanimal_);
+	~WrongAnimal();
+	WrongAnimal&		operator=(WrongAnimal const & animal);
 	
-	
-
+	const std::string&	getType(void) const;
+	void	makeSound(void) const;
 };
 
 #endif
