@@ -1,0 +1,95 @@
+Implicit Cast:
+	-> Demotion, this one is easy, demote Double to Int does not
+		lose precision
+		int a
+		Double b = a
+
+Explicit Cast:
+	-> Promotion, this one gets tricky, promoting Int to Double you will
+		lose precision
+		Double b
+		a = (int b)
+
+************************************************************************
+
+Reinterpretation Cast
+
+float a
+void *d = &a	-> Promotion, you're changing void to float
+
+int *p = (int *)d -> Demotion, you're want to save in *p a conversion from (void *) to (int *)
+
+
+************************************************************************
+
+Type qualifier & Reinterpretation
+
+	Child a;
+	Parent *b;
+
+Implicit -> *b = &a				-> upcast
+Explicit -> *b = (Parent *)&a
+
+Explicit downcast:
+	Parent *b;
+
+	Child *f = (Child *) b;		-> Really risky
+
+************************************************************************
+
+Static Cast!
+
+Si te quieres pasar por el forro Explicit Demotion/Downcasting usa:
+
+ static_cast<int>(var)
+
+	a = 42
+	double b = a;
+	
+	int d = static_cast<int>(b)
+
+	Child *f = static_cast<Child *>(b);		-> I don't care
+
+************************************************************************
+
+Dynamic Cast!
+
+Only works with Polymorphic instance (virtual clases)
+
+ dynamic_cast<int>(var)
+
+	Parent *b;
+
+	try {
+		Child d = dynamic_cast<Child &>(*b)
+	} catch
+
+************************************************************************
+
+Reinterpret Cast
+
+ reinterpret_cast<int>(var)
+
+	float a = 420.42f
+
+	void *b = &a
+	int *c = reinterpret_cast<int *>(b)
+	int &d = reinterpret_cast<int &>(b)
+
+Se carga el tipo actual de la variable y la reinterpreta sin ningun valor al que tu le pidas
+por que usa directamente direcciones pero hay que tener cuidado
+
+************************************************************************
+
+Const Cast
+
+ const_cast<int>(var)
+
+************************************************************************
+
+Cast Operators
+
+puedes hacer overload de los propios typos de var
+
+opertator float()
+opertator int()
