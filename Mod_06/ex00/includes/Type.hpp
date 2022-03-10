@@ -3,7 +3,9 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <cmath>
+#include <cfloat>
+#include <limits>
 
 
 class Type {
@@ -11,6 +13,9 @@ class Type {
 private:
 
 	std::string	str;
+	double		value;
+	bool		outOfLimits;
+
 	char		c;
 	int 		i;
 	float		f;
