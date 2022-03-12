@@ -21,11 +21,6 @@ Type::Type(Type const & type_)
 	this->str = type_.str;
 	this->value = type_.value;
 	this->outOfLimits = type_.outOfLimits;
-	
-	this->c = type_.c;
-	this->i = type_.i;
-	this->f = type_.f;
-	this->d = type_.d;
 }
 
 Type::~Type()
@@ -38,12 +33,7 @@ Type&		Type::operator=(Type const & type_)
 	this->value = type_.value;
 	this->outOfLimits = type_.outOfLimits;
 	
-	this->c = type_.c;
-	this->i = type_.i;
-	this->f = type_.f;
-	this->d = type_.d;
 	return *this;
-
 }
 
 void		Type::getType(void)
@@ -53,27 +43,23 @@ void		Type::getType(void)
 	this->toFloat();
 	this->toChar();
 	this->toInt();
-	std::cout << d << std::endl;
-	std::cout << f << std::endl;
-	std::cout << i << std::endl;	
-	std::cout << c << std::endl;
 
 }
 
 void		Type::toChar(void)
 {
-	std::cout << "float: ";
+	std::cout << "char: ";
 	if (outOfLimits || isnan(value))
 		std::cout << "nan";
 	else if (isprint(this->value) == false)
 		std::cout << "Non displayeable";
 	else
-		std::cout << static_cast<char>(this->value);
+		std::cout << "'" << static_cast<char>(this->value) << "'";
 	std::cout << std::endl;
 }
 void		Type::toInt(void)
 {
-	std::cout << "float: ";
+	std::cout << "int: ";
 	if (outOfLimits || isnan(value) || this->value > INT_MAX)
 		std::cout << "nan";
 	else

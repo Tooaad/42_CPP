@@ -16,11 +16,6 @@ private:
 	double		value;
 	bool		outOfLimits;
 
-	char		c;
-	int 		i;
-	float		f;
-	double		d;
-
 public:
 
 	Type();
