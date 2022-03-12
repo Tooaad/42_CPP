@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:05:35 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 00:10:20 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/12 11:56:53 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ClapTrap::attack(std::string const & target)
 	this->energyPoints -= 10; // Dano ClapTrap
 
 	std::cout << "ClapTrap " << this->name << " attack "
-	<< target << ", causing" << 10 << "points of damage"
+	<< target << ", causing " << 10 << " points of damage"
 	<< std::endl;
 }
 

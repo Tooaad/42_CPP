@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:05:35 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 11:43:20 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/12 12:17:09 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(std::string name_) : name(name_), hitPoints(10), energyPoints
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->name << " Has been destructed" << std::endl;
+	std::cout << this->name << " Clap Has been destructed" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & claptrap_)
