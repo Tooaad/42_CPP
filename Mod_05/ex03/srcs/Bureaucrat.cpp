@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:29:09 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/07 02:23:56 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 21:23:51 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,18 @@ int	Bureaucrat::getGrade(void) const
 	return this->grade;
 }
 
-void Bureaucrat::signForm(Form form)
+void Bureaucrat::signForm(Form & form) const
 {
 	if (form.isSigned())
 		std::cout << this->name << " signs " << form.getName() << std::endl;
 	else
+	{
 		std::cout << this->name << " cannot sign " << form.getName()
 		<< " because his grade is too low " << this->grade << " and grade form is: "
 		<< form.getGrade() << std::endl;
+	
+		throw GradeTooLowException();
+	}
 }
 
 void	Bureaucrat::increment(void)
@@ -72,7 +76,7 @@ void	Bureaucrat::decrement(void)
 		throw GradeTooLowException();
 }
 
-void Bureaucrat::executingForm(Form const & form)
+void Bureaucrat::executeForm(Form const & form)
 {
 	if (form.isSigned())
 		std::cout << this->name << " signs " << form.getName() << std::endl;

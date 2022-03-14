@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:02:58 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/07 12:07:57 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 21:09:50 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,18 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm : public virtual Form {
+class ShrubberyCreationForm : public Form {
 
-public:
+	public:
 
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(std::string target);
-	// ShrubberyCreationForm(ShrubberyCreationForm const & SCF);
-	~ShrubberyCreationForm();
-	// ShrubberyCreationForm&		operator=(ShrubberyCreationForm const & SCF);
-		
-	void			execute(Bureaucrat const & executor) const;
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		virtual ~ShrubberyCreationForm();
+			
+		virtual void			execute(Bureaucrat const & executor) const;
 
-
-private:
-	void makeTree() const;
+	private:
+		void makeTree() const;
 
 };
 #endif

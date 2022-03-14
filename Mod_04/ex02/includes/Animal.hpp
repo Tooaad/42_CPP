@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:37 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/05 01:50:52 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:19:52 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 
 class Animal {
 	

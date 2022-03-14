@@ -1,10 +1,5 @@
 #include "../includes/Form.hpp"
 
-Form::Form()
-{
-	
-}
-
 Form::Form(std::string name_, std::string target_, int grade_, int execGrade_) : name(name_), target(target_), grade(grade_), execGrade(execGrade_), signed_(0)
 {
 	if (grade < 1 || execGrade < 1)
@@ -13,12 +8,12 @@ Form::Form(std::string name_, std::string target_, int grade_, int execGrade_) :
 		throw GradeTooLowException();
 }
 
+Form::Form(Form const & form_) : name(form_.name), grade(form_.grade), execGrade(form_.execGrade), signed_(form_.signed_)
+{
+}
+
 Form&		Form::operator=(Form const & form)
 {
-	this->name = form.name;
-	this->target = form.target;
-	this->grade = form.grade;
-	this->execGrade = form.execGrade;
 	this->signed_ = form.signed_;
 	return *this;
 }
@@ -54,12 +49,14 @@ bool	Form::isSigned(void) const
 
 bool	Form::beSigned(Bureaucrat const & bureaucrat)
 {
-	return (bureaucrat.getGrade() < this->grade)? (this->signed_ = true) : throw GradeTooLowException();
+	if (bureaucrat.getGrade() < this->grade)
+		return (this->signed_ = true);
+	throw GradeTooHighException();
 }
 
 std::ostream&		operator<<(std::ostream &o, Form const &Form)
 {
-		o << Form.getName() << ", For pacient: " << Form.getTarget() <<", Form grade: " << Form.getGrade() << ", Form signed? " << Form.isSigned();
+	o << Form.getName() << ", Form grade: " << Form.getGrade() << ", Form signed? " << Form.isSigned();
 	return o;
 }
 

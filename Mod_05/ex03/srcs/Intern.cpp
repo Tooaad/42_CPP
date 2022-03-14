@@ -23,10 +23,7 @@ Intern&		Intern::operator=(Intern const & intern)
 Intern::~Intern()
 {
 	for (int i = 0; i < 3; i++)
-	{
-		std::cout << "dest" << std::endl;
 		delete this->forms[i];
-	}
 }
 
 Form *Intern::makeForm(std::string nameForm, std::string target)

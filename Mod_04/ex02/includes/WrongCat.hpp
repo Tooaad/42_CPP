@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 #include "../includes/WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {

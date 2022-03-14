@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:35 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 13:57:40 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:55:18 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 #include "../includes/Animal.hpp"
 #include "../includes/Brain.hpp"
 
@@ -29,7 +28,7 @@ public:
 
 	Cat();
 	Cat(Cat const & cat_);
-	~Cat();
+	virtual ~Cat();
 	
 	virtual void		makeSound(void) const;
 };

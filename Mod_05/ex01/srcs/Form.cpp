@@ -1,6 +1,6 @@
 #include "../includes/Form.hpp"
 
-Form::Form(std::string name_, int grade_) : name(name_), grade(grade_), signed_(0)
+Form::Form(std::string name_, int grade_, int exec_) : name(name_), grade(grade_), exec(exec_), signed_(0)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -8,10 +8,9 @@ Form::Form(std::string name_, int grade_) : name(name_), grade(grade_), signed_(
 		throw GradeTooLowException();
 }
 
-// Form::Form(Form const & form_) : signed_(0)
-// {
-// 	*this = form_;
-// }
+Form::Form(Form const & form_) : name(form_.name), grade(form_.grade), exec(form_.exec), signed_(form_.signed_)
+{
+}
 
 Form&		Form::operator=(Form const & form)
 {
@@ -21,6 +20,12 @@ Form&		Form::operator=(Form const & form)
 
 Form::~Form()
 {
+}
+
+Form&		Form::operator=(Form const & form_)
+{
+	this->signed_ = form_.signed_;
+	return *this;
 }
 
 std::string Form::getName(void) const
@@ -40,7 +45,11 @@ bool	Form::isSigned(void) const
 
 bool	Form::beSigned(Bureaucrat const & bureaucrat)
 {
-	return (bureaucrat.getGrade() < this->grade)? (this->signed_ = true) : throw GradeTooLowException();
+	if (bureaucrat.getGrade() < this->grade)
+		return (this->signed_ = true);
+	else 
+		bureaucrat.signForm(*this);
+	return this->signed_;
 }
 
 std::ostream&		operator<<(std::ostream &o, Form const &Form)

@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:08 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/07 13:58:03 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 21:29:47 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,16 @@ int main()
 {
 	try
 	{
-		// Bureaucrat hermes("Hermes", 1);
-		// ShrubberyCreationForm myTree("Planet Exp");
-		// RobotomyRequestForm robotomy("Bender");
-		// PresidentialPardonForm pardon("Nixon");
-
-		// std::cout << hermes << std::endl;
-
 		Intern someRandomIntern;
 		Form* rrf;
-		rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
+		rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
 
 		std::cout << *rrf << std::endl;
 		
-		Form *rf = NULL;
-		rf = rrf;
-		std::cout << "main" << std::endl;
-		(*rf).isSigned();
+		// Form *rf = NULL;
+		// rf = rrf;
+		// std::cout << "main" << std::endl;
+		// (*rf).isSigned();
 		
 	}
 	catch(const std::exception& e)

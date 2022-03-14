@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Class.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 12:01:37 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/05 01:50:52 by gpernas-         ###   ########.fr       */
+/*   Created: 2022/03/13 20:20:19 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 20:22:26 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef CLASS_H
+#define CLASS_H
 
+#include <stdlib.h>
 #include <iostream>
-#include <string>
-#include <sstream>
 
-class Animal {
-	
-protected:
-
-	std::string type;
-
-public:
-
-	Animal();
-	Animal(std::string type_);
-	Animal(Animal const & animal_);
-	virtual ~Animal();
-	Animal&		operator=(Animal const & animal);
-	
-	const std::string&	getType(void) const;
-	virtual void	makeSound(void) const = 0;
+class Base
+{
+	public:
+		virtual ~Base(){};
 };
+
+class A : public Base
+{
+};
+class B : public Base
+{
+};
+class C : public Base
+{
+};
+
+Base *generate(void);
+void identify(Base *p);
 
 #endif

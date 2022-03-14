@@ -12,7 +12,7 @@ public:
 
 	WrongCat();
 	WrongCat(WrongCat const & wcat_);
-	~WrongCat();
+	virtual ~WrongCat();
 	
 	void		makeSound(void) const;
 };

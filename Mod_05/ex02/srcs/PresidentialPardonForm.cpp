@@ -8,18 +8,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target_) : Form("Pres
 {
 }
 
-// PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & PPF)
-// {
-// }
-
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
-
-// PresidentialPardonForm&		PresidentialPardonForm::operator=(PresidentialPardonForm const & PPF)
-// {
-// 	return *this;
-// }
 	
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {

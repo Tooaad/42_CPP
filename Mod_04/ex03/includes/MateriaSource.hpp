@@ -5,32 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 13:00:25 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/05 19:52:00 by gpernas-         ###   ########.fr       */
+/*   Created: 2021/09/10 16:26:29 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 17:17:28 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_H
-# define MATERIASOURCE_H
+#define MATERIASOURCE_H
 
-#include "../includes/AMateria.hpp"
-#include "../includes/IMateriaSource.hpp"
+#include "IMateriaSource.hpp"
+class MateriaSource : public IMateriaSource
+{
+	private:
+		size_t amount;
+		AMateria *materia_source[4];
 
-class MateriaSource : public IMateriaSource {
+	public:
+		MateriaSource();
+		MateriaSource(const MateriaSource &materiasource_);
+		virtual ~MateriaSource();
 
-private:
-	AMateria* source[4];
-
-public:
-
-	MateriaSource();
-	~MateriaSource();
-	MateriaSource(MateriaSource const & materiasource_);
-	MateriaSource&		operator=(MateriaSource const & materiasource_);
-	
-	void learnMateria(AMateria* m);
-	AMateria* createMateria(std::string const & type);
-	
+		MateriaSource &operator=(const MateriaSource &materiasource_);
+		void learnMateria(AMateria *new_materia);
+		AMateria *createMateria(std::string const &type);
 };
 
 #endif

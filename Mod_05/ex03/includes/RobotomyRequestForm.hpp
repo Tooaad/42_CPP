@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 20:04:22 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/07 12:12:51 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 21:13:01 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,19 @@
 
 class Bureaucrat;
 
-class RobotomyRequestForm : public virtual Form {
+class RobotomyRequestForm : public Form {
 
-public:
+	public:
 
-	RobotomyRequestForm();
-	RobotomyRequestForm(std::string target_);
-	// RobotomyRequestForm(RobotomyRequestForm const & RQF);
-	~RobotomyRequestForm();
-	// RobotomyRequestForm&		operator=(RobotomyRequestForm const & RQF);
-		
-	void			execute(Bureaucrat const & executor) const;
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target_);
+		virtual ~RobotomyRequestForm();
+			
+		virtual void			execute(Bureaucrat const & executor) const;
 
 
-private:
-	void drillNoise() const;
+	private:
+		void drillNoise() const;
 
 };
 #endif

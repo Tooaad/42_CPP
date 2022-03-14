@@ -1,21 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/10 16:26:29 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 17:21:03 by gpernas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ICE_H
-# define ICE_H
+#define ICE_H
 
-#include "../includes/AMateria.hpp"
-#include "../includes/ICharacter.hpp"
+#include "AMateria.hpp"
 
-class Ice : public AMateria {
+class Ice : virtual public AMateria
+{
+	public:
+		Ice();
+		Ice(const Ice &ice_);
+		virtual ~Ice();
 
-public:
+		Ice &operator=(const Ice &ice_);
 
-	Ice();
-	Ice(std::string type_);
-	Ice(Ice const & Ice_);
-	~Ice();
-	Ice&		operator=(Ice const & Ice_);
-	
-	AMateria* clone(void) const;
-	void use(ICharacter& target);
+		AMateria *clone() const;
+		void use(ICharacter &target);
 };
 
 #endif

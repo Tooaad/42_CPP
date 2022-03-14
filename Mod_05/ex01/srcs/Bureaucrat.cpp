@@ -6,31 +6,31 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:29:09 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 13:34:42 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:55:47 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_), grade(grade_)
+Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_)
 {
-	if (grade < 1)
+	if (grade_ < 1)
 		throw GradeTooHighException();
 	else if (grade_ > 150)
 		throw GradeTooLowException();
+	this->grade = grade_;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat_)
+Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat_) : name(bureaucrat_.name), grade(bureaucrat_.grade)
 {
-	*this = bureaucrat_;
 }
 
 Bureaucrat&		Bureaucrat::operator=(Bureaucrat const & bureaucrat)
 {
 	// std::string *name_;
 	// name_ = (std::string *)(&this->name);
-		// Here, we will have this->name pointing name_ that equals to:
-		// this->name = name_;
+	// 	// Here, we will have this->name pointing name_ that equals to:
+	// 	// this->name = name_;
 	// *name_ = bureaucrat.name;
 
 	this->grade = bureaucrat.getGrade();
@@ -51,14 +51,18 @@ int	Bureaucrat::getGrade(void) const
 	return this->grade;
 }
 
-void Bureaucrat::signForm(Form form)
+void Bureaucrat::signForm(Form form) const
 {
 	if (form.isSigned())
 		std::cout << this->name << " signs " << form.getName() << std::endl;
 	else
+	{
 		std::cout << this->name << " cannot sign " << form.getName()
 		<< " because his grade is too low " << this->grade << " and grade form is: "
 		<< form.getGrade() << std::endl;
+		
+		throw GradeTooLowException();
+	}
 }
 
 void	Bureaucrat::increment(void)

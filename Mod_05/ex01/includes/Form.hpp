@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:30:26 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 13:33:44 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:34:26 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ private:
 
 	std::string const	name;
 	int			const	grade;
+	int			const	exec;
 	bool				signed_;
 
 public:
 
-	Form(std::string name_, int grade_);
-	// Form(Form const & form_);
+	Form(std::string name_, int grade_, int exec_);
+	Form(Form const & form_);
 	~Form();
 	Form&		operator=(Form const & form);
 	

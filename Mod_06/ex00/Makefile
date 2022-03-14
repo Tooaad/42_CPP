@@ -1,6 +1,6 @@
 # Project compilation files and directories
 
-NAME                    =   ex03
+NAME                    =   ex00
 
 SRCS                    =   main.cpp    				\
 							Type.cpp

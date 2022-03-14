@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:08 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 13:33:56 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 18:11:52 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int main()
 	try
 	{
 		// Bureaucrat *bureaucrat = new Bureaucrat("Hermes", 150);
-		Bureaucrat	hermes("Hermes", 46);
-		Form		review("Ingress", 40);
-		hermes.signForm(review);
+		Bureaucrat	hermes("Hermes", 36);
+		Form		review("Ingress", 40, 40);
 		review.beSigned(hermes);
+		hermes.signForm(review);
 		std::cout << hermes << std::endl;
 		std::cout << review << std::endl;
 		// bureaucrat.decrement();

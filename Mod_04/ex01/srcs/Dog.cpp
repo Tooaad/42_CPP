@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:27:55 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 14:27:12 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:01:51 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(Dog const & dog_)
 {
 	*this = dog_;
-	this->brain = new Brain();
 	std::cout << "Dog copied from "<< this->type << std::endl;
+	this->brain = new Brain(*dog_.brain);
 }
 
 Dog::~Dog()

@@ -5,50 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 18:42:01 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/05 19:35:43 by gpernas-         ###   ########.fr       */
+/*   Created: 2021/09/11 18:06:53 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 17:36:19 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/AMateria.hpp"
 
-AMateria::AMateria() : type("")
+AMateria::AMateria()
 {
-	std::cout << "AMateria created" << std::endl;
 }
 
-AMateria::AMateria(std::string type_) : type(type_)
+AMateria::AMateria(std::string const &type_)
 {
-	std::cout << "AMateria created with type"<< type_ << std::endl;
-}
-
-AMateria::AMateria(AMateria const & amateria_)
-{
-	*this = amateria_;
-	std::cout << "AMateria copied from "<< this->type << std::endl;
+	this->type = type_;
 }
 
 AMateria::~AMateria()
 {
-	std::cout << "AMateria destructed" << std::endl;
 }
 
-AMateria& AMateria::operator=(AMateria const & amateria_)
+AMateria::AMateria(const AMateria &amateria)
 {
-	this->type = amateria_.type;
-	return *this;
+	this->operator=(amateria);
 }
 
-const std::string&	AMateria::getType(void) const
+AMateria &AMateria::operator=(const AMateria &amateria)
+{
+	this->type = amateria.type;
+	return (*this);
+}
+
+std::string const &AMateria::getType() const
 {
 	return this->type;
-}
-
-AMateria* AMateria::clone(void) const
-{	
-}
-
-void AMateria::use(ICharacter& target)
-{
-	
 }

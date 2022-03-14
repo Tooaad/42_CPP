@@ -8,18 +8,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target_) : Form("RobotomyRe
 {
 }
 
-// RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & RQF)
-// {
-// }
-
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
-
-// RobotomyRequestForm&		RobotomyRequestForm::operator=(RobotomyRequestForm const & RQF)
-// {
-// 	return *this;
-// }
 	
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {

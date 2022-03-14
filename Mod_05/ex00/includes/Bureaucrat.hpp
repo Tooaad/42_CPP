@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:29:20 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 12:29:21 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:58:43 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
 #include <exception>
 
 class Bureaucrat {

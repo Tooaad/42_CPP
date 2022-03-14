@@ -10,21 +10,19 @@
 
 class Bureaucrat;
 
-class PresidentialPardonForm : public virtual Form {
+class PresidentialPardonForm : public Form {
 
-public:
+	public:
 
-	PresidentialPardonForm();
-	PresidentialPardonForm(std::string target_);
-	// PresidentialPardonForm(PresidentialPardonForm const & PPF);
-	~PresidentialPardonForm();
-	// PresidentialPardonForm&		operator=(PresidentialPardonForm const & RQF);
-		
-	void			execute(Bureaucrat const & executor) const;
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target_);
+		virtual ~PresidentialPardonForm();
+			
+		virtual void			execute(Bureaucrat const & executor) const;
 
 
-private:
-	void pardon() const;
+	private:
+		void pardon() const;
 
 };
 #endif

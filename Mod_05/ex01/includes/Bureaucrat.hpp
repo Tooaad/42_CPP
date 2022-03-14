@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:29:05 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 13:22:57 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:26:37 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 
 	void 				increment(void);
 	void				decrement(void);
-	void				signForm(Form form);
+	void				signForm(Form form) const;
 
 	class GradeTooHighException : public std::exception {
 		public:

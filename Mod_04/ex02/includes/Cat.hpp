@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:35 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 13:57:40 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:15:43 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 	Cat();
 	Cat(Cat const & cat_);
-	~Cat();
+	virtual ~Cat();
 	
 	virtual void		makeSound(void) const;
 };

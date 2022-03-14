@@ -1,38 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/11 18:06:53 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 17:38:14 by gpernas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Cure.hpp"
 
-Cure::Cure() : AMateria()
+Cure::Cure() : AMateria("cure")
 {
-	this->type = "Cure";
 }
 
-Cure::Cure(std::string type_)
+Cure::Cure(const Cure &cure_) : AMateria("cure")
 {
-	this->type = type;
-}
-
-Cure::Cure(Cure const & Cure_)
-{
-	*this = Cure_;
+	this->operator=(cure_);
 }
 
 Cure::~Cure()
 {
-	//Delete del clone? se hace en el main true?
 }
 
-Cure& Cure::operator=(Cure const & Cure_)
+Cure &Cure::operator=(const Cure &cure_)
 {
-	this->type = Cure_.type;
+	this->type = cure_.getType();
 	return *this;
 }
 
-AMateria* Cure::clone(void) const
+AMateria *Cure::clone() const
 {
-	AMateria* m = new Cure(this->type);
-	return m;
+	return (new Cure(*this));
 }
 
-void	use(ICharacter& target)
+void Cure::use(ICharacter &target)
 {
-	std::cout << "* heals " << target.getName() << "\'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
 }

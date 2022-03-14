@@ -8,18 +8,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target_) : Form("Shrubb
 {
 }
 
-// ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & SCF)
-// {
-// }
-
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
-
-// ShrubberyCreationForm&		ShrubberyCreationForm::operator=(ShrubberyCreationForm const & SCF)
-// {
-// 	return *this;
-// }
 	
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
@@ -32,8 +23,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 void	ShrubberyCreationForm::makeTree() const
 {
-	std::string filename = getTarget().append("_shrubbery");
-	// std::ifstream readFile;
 	std::ofstream ofs(getTarget().append("_shrubbery"));
 
 	ofs 		<< "           {{ }{\n"

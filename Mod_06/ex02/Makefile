@@ -1,14 +1,8 @@
 # Project compilation files and directories
 
-NAME                    =   ex03
+NAME                    =   ex02
 
-SRCS                    =   main.cpp    				\
-							Bureaucrat.cpp  			\
-							Form.cpp					\
-							ShrubberyCreationForm.cpp	\
-							RobotomyRequestForm.cpp		\
-							PresidentialPardonForm.cpp	\
-							Intern.cpp
+SRCS                    =   main.cpp   
 
 SRCSFD					=	srcs/
 OBJSFD					=	objs/

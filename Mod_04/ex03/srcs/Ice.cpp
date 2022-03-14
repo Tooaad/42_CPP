@@ -5,46 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 13:31:49 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/05 18:38:46 by gpernas-         ###   ########.fr       */
+/*   Created: 2021/09/11 18:06:53 by gpernas-          #+#    #+#             */
+/*   Updated: 2022/03/13 17:24:35 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Ice.hpp"
 
-Ice::Ice() : AMateria()
+Ice::Ice() : AMateria("ice")
 {
-	this->type = "ice";
 }
 
-Ice::Ice(std::string type_)
+Ice::Ice(const Ice &obj) : AMateria("ice")
 {
-	this->type = type;
-}
-
-Ice::Ice(Ice const & ice_)
-{
-	*this = ice_;
+	this->operator=(obj);
 }
 
 Ice::~Ice()
 {
-	//Delete del clone? se hace en el main true?
 }
 
-Ice& Ice::operator=(Ice const & Ice_)
+Ice &Ice::operator=(const Ice &obj)
 {
-	this->type = Ice_.type;
+	this->type = obj.getType();
 	return *this;
 }
 
-AMateria* Ice::clone(void) const
+void Ice::use(ICharacter &target)
 {
-	AMateria* m = new Ice(this->type);
-	return m;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
 
-void	use(ICharacter& target)
+AMateria *Ice::clone() const
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
+	return (new Ice(*this));
 }

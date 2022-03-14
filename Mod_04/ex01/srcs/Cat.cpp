@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:18:08 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/04 14:26:13 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:59:20 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	this->brain = new Brain();
 	std::cout << "Cat created" << std::endl;
+	this->brain = new Brain();
 }
 
 Cat::Cat(Cat const & cat_)
 {
 	*this = cat_;
-	this->brain = new Brain();
 	std::cout << "Cat copied from "<< this->type << std::endl;
+	this->brain = new Brain(*cat_.brain);
 }
 
 Cat::~Cat()

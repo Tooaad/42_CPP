@@ -6,26 +6,26 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 12:29:26 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/06 12:29:27 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:30:00 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_), grade(grade_)
+Bureaucrat::Bureaucrat(std::string name_, int grade_) : name(name_)
 {
-	if (grade < 1)
+	if (grade_ < 1)
 		throw GradeTooHighException();
 	else if (grade_ > 150)
 		throw GradeTooLowException();
+	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat_)
+Bureaucrat::Bureaucrat(Bureaucrat const & bureaucrat_) : name(bureaucrat_.name), grade(bureaucrat_.grade)
 {
-	*this = bureaucrat_;
 }
 
-Bureaucrat&		Bureaucrat::operator=(Bureaucrat const & bureaucrat)
+Bureaucrat&		Bureaucrat::operator=(Bureaucrat const & bureaucrat_)
 {
 	// std::string *name_;
 	// name_ = (std::string *)(&this->name);
@@ -33,7 +33,7 @@ Bureaucrat&		Bureaucrat::operator=(Bureaucrat const & bureaucrat)
 		// this->name = name_;
 	// *name_ = bureaucrat.name;
 
-	this->grade = bureaucrat.getGrade();
+	this->grade = bureaucrat_.getGrade();
 	return *this;
 }
 
