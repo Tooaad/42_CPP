@@ -12,6 +12,7 @@ class Type {
 
 private:
 
+	char		*chr;
 	std::string	str;
 	double		value;
 	bool		outOfLimits;
@@ -19,7 +20,7 @@ private:
 public:
 
 	Type();
-	Type(std::string name_);
+	Type(char *name_);
 	Type(Type const & type_);
 	~Type();
 	Type&		operator=(Type const & type);

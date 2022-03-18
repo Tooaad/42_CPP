@@ -12,14 +12,8 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-	std::string str(argv[1]);
-	// std::cout << str << std::endl;
-	Type type(str);
+	Type type(argv[1]);
 	type.getType();
-
-
-	// std::cout << type << std::endl();
-	
 
 	return 0;
 }

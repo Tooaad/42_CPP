@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 18:06:53 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/13 17:37:51 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:21:31 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ Character::~Character()
 Character &Character::operator=(Character const &character_)
 {
 	this->name = character_.getName();
-
 	for (size_t i = 0; i < this->amount; i++)
 		delete this->materia[i];
 	this->amount = 0;
@@ -60,11 +59,14 @@ void Character::equip(AMateria *m)
 	for (size_t i = 0; i < this->amount; i++)
 		if (this->materia[i] == m)
 			break;
-	this->materia[this->amount++] = m;
+	if (this->amount < 4)
+		this->materia[this->amount++] = m;
 }
 
 void Character::unequip(int idx)
 {
+	if (idx < 0 || idx > 4 || ((size_t)idx >= this->amount))
+		return ;
 	for (size_t i = idx; i < this->amount - 1; i++)
 	{
 		this->materia[i] = this->materia[i + 1];
@@ -75,6 +77,8 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
+	if (idx < 0 || idx > 4 || ((size_t)idx >= this->amount))
+		return ;
 	this->materia[idx]->use(target);
 }
 

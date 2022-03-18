@@ -6,7 +6,7 @@
 /*   By: gpernas- <gpernas-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:01:08 by gpernas-          #+#    #+#             */
-/*   Updated: 2022/03/14 14:58:16 by gpernas-         ###   ########.fr       */
+/*   Updated: 2022/03/18 11:40:21 by gpernas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 	}
 
 	//
+	std::cout << "\n";
 	Cat*	cat1 = new Cat();
 	Cat		cat2 = *cat1;
 
