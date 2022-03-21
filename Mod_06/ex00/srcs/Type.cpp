@@ -75,7 +75,7 @@ void		Type::toInt(void)
 void		Type::toFloat(void)
 {
 	std::cout << "float: ";
-	if (outOfLimits || isnan(value) || this->value > FLT_MAX || this->value < FLT_MIN)
+	if (outOfLimits || isnan(value) || this->value > FLT_MAX || this->value < FLT_MIN_EXP)
 		std::cout << "impossible";
 	else
 		std::cout << static_cast<float>(this->value) << "f";
@@ -84,9 +84,9 @@ void		Type::toFloat(void)
 void		Type::toDouble(void)
 {
 	std::cout << "double: ";
-	if (outOfLimits || isnan(value))
+	if (outOfLimits || isnan(value)|| this->value > DBL_MAX || this->value < DBL_MIN_EXP)
 		std::cout << "impossible";
 	else
-		std::cout << static_cast<double>(this->value);
+		std::cout << this->value;
 	std::cout << std::endl;
 }
