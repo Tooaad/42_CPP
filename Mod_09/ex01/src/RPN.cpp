@@ -18,6 +18,19 @@ int RPN::top()
     return _stack.top();
 }
 
+RPN::RPN(const RPN &other)
+{
+    *this = other;
+}
+
+RPN &RPN::operator=(const RPN &other)
+{
+    if (this != &other) {
+        _stack = other._stack;
+    }
+    return *this;
+}
+
 void RPN::compute(const std::string &token)
 {
     const int n1 = _stack.top();

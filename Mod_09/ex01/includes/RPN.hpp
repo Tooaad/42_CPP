@@ -14,7 +14,9 @@ class RPN
 
     public: 
         RPN();
+        RPN(const RPN &other);
         ~RPN();
+        RPN &operator=(const RPN &other);
 
         void push(const int &value);
         int top();
