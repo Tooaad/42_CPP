@@ -8,6 +8,20 @@ BitcoinExchange::~BitcoinExchange() {
     // Destructor
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+    // Copy constructor
+    *this = other;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
+    // Assignment operator
+    if (this != &other) {
+        _data = other._data;
+        _result = other._result;
+    }
+    return *this;
+}
+
 bool BitcoinExchange::dateExist(const std::string &date) {
     // Check if a date exists in the map
     return _data.find(date) != _data.end();

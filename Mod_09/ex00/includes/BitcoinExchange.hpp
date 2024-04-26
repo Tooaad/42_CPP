@@ -12,6 +12,8 @@ class BitcoinExchange {
     public:
         BitcoinExchange();
         ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange &other);
+        BitcoinExchange &operator=(const BitcoinExchange &other);
 
         bool dateExist(const std::string &date);
         double getNearestDate(const std::string &date);
