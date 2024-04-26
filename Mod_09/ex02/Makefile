@@ -3,7 +3,7 @@
 NAME                    =   PmergeMe
 
 SRCS                    =   main.cpp    	\
-					    	PmergeMe.cpp	\			
+					    	PmergeMe.cpp	
 
 SRCSFD					=	src/
 OBJSFD					=	objs/
