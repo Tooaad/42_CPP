@@ -1,9 +1,9 @@
 # Project compilation files and directories
 
-NAME                    =   BTC
+NAME                    =   PmergeMe
 
 SRCS                    =   main.cpp    	\
-					    	BitcoinExchange.cpp		
+					    	PmergeMe.cpp	\			
 
 SRCSFD					=	src/
 OBJSFD					=	objs/
