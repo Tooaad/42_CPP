@@ -28,10 +28,18 @@ int main(int argc, char **argv)
     }
 
     // Maybe overwrite unique so it returns a boolean and throw an error
-    p.l.unique();
-    p.v.erase(std::unique(p.v.begin(), p.v.end()), p.v.end());
+    // p.l.unique();
+    // p.v.erase(std::unique(p.v.begin(), p.v.end()), p.v.end());
 
-    for (std::__1::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
+    
+    std::cout << std::endl;
+    std::cout << std::endl;
+    // p.mergeInsertionSort(p.l);
+    std::cout << std::endl;
+    p.mergeInsertionSort(p.v);
+    std::cout << std::endl;
+    
+    for (std::__cxx11::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
     {
         std::cout << *it << " ";
     }

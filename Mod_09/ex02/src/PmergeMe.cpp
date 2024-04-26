@@ -31,8 +31,8 @@ void PmergeMe::addToVector(const int &val)
         }
         else
             v.push_back(val);
-
-    } else 
+    }
+    else
         this->v.push_back(val);
     // if (v.size() > 1 && v.size() % 2 == 0)
     //     if (val < v[v.size() - 2])
@@ -53,28 +53,30 @@ void PmergeMe::addToList(const int &val)
         }
         else
             l.push_back(val); // push val to the end
-
-    } else 
+    }
+    else
         this->l.push_back(val);
 }
 
-void PmergeMe::mergeMe()
+// Explicit instantiation
+template void PmergeMe::mergeInsertionSort<std::list<int>>(std::list<int>&);
+template void PmergeMe::mergeInsertionSort<std::vector<int>>(std::vector<int>&);
+
+template <typename Container>
+void PmergeMe::mergeInsertionSort(Container &c)
 {
-    std::vector<int>::iterator it1 = v.begin();
-    std::list<int>::iterator it2 = l.begin();
+    size_t size = c.size();
+    if (size < 2)
+        return;
 
-    while (it1 != v.end() && it2 != l.end())
+    // Split the container into two halves, we need to sort only the odd elements
+    
+    for (typename Container::iterator it = c.begin(); it != c.end();)
     {
-        if (*it1 < *it2)
-        {
-            std::cout << *it1 << " ";
-            std::advance(it1, 2);
-        }
-        else
-        {
-            std::cout << *it2 << " ";
-            std::advance(it2, 2);
-        }
+        int current = *it;
+        std::advance(it, 2);
+        std::cout << *it << " ";
+        if (current > *it)
+            std::swap(current, *it);
     }
-
 }

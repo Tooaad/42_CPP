@@ -20,7 +20,13 @@ public:
 
     void addToVector(const int &val);
     void addToList(const int &val);
-    void mergeMe();
+
+    template <typename Container>
+    void mergeInsertionSort(Container &c);
+    template <typename Container>
+    void recursiveMergeInsertionSort(Container &c, typename Container::iterator low, typename Container::iterator high);
+    // private:
+
 };
 
 
