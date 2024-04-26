@@ -20,7 +20,7 @@ public:
 
     void addToVector(const int &val);
     void addToList(const int &val);
-    // void mergeMe(std::vector<int> &v1, std::vector<int> &v2, std::list<int> &l);
+    void mergeMe();
 };
 
 

@@ -30,9 +30,8 @@ void PmergeMe::addToVector(const int &val)
             v.push_back(prev);
         }
         else
-        {
             v.push_back(val);
-        }
+
     } else 
         this->v.push_back(val);
     // if (v.size() > 1 && v.size() % 2 == 0)
@@ -53,42 +52,29 @@ void PmergeMe::addToList(const int &val)
             l.push_back(prev); // push prev to the end
         }
         else
-        {
             l.push_back(val); // push val to the end
-        }
+
     } else 
         this->l.push_back(val);
 }
 
-// void PmergeMe::mergeMe(std::vector<int> &v1, std::vector<int> &v2, std::list<int> &l)
-// {
-//     std::vector<int>::iterator it1 = v1.begin();
-//     std::vector<int>::iterator it2 = v2.begin();
-//     std::list<int>::iterator it3 = l.begin();
+void PmergeMe::mergeMe()
+{
+    std::vector<int>::iterator it1 = v.begin();
+    std::list<int>::iterator it2 = l.begin();
 
-//     while (it1 != v1.end() && it2 != v2.end())
-//     {
-//         if (*it1 < *it2)
-//         {
-//             l.push_back(*it1);
-//             it1++;
-//         }
-//         else
-//         {
-//             l.push_back(*it2);
-//             it2++;
-//         }
-//     }
+    while (it1 != v.end() && it2 != l.end())
+    {
+        if (*it1 < *it2)
+        {
+            std::cout << *it1 << " ";
+            std::advance(it1, 2);
+        }
+        else
+        {
+            std::cout << *it2 << " ";
+            std::advance(it2, 2);
+        }
+    }
 
-//     while (it1 != v1.end())
-//     {
-//         l.push_back(*it1);
-//         it1++;
-//     }
-
-//     while (it2 != v2.end())
-//     {
-//         l.push_back(*it2);
-//         it2++;
-//     }
-// }
+}
