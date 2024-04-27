@@ -35,6 +35,7 @@ int main(int argc, char **argv)
     std::cout << std::endl;
     std::cout << std::endl;
     p.recursiveSort(p.l);
+    p.insertionOrder(p.l, p.pendSort(p.l));
     std::cout << std::endl;
     // p.recursiveSort(p.v);
     std::cout << std::endl;

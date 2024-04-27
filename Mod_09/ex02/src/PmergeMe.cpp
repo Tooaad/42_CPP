@@ -59,8 +59,8 @@ void PmergeMe::addToList(const int &val)
 }
 
 // Explicit instantiation
-template void PmergeMe::recursiveSort<std::list<int>>(std::list<int>&);
-template void PmergeMe::recursiveSort<std::vector<int>>(std::vector<int>&);
+template void PmergeMe::recursiveSort<std::list<int>>(std::list<int> &);
+template void PmergeMe::recursiveSort<std::vector<int>>(std::vector<int> &);
 
 template <typename Container>
 void PmergeMe::recursiveSort(Container &c)
@@ -71,8 +71,9 @@ void PmergeMe::recursiveSort(Container &c)
 
     Container temp;
     typename Container::iterator current = c.begin();
-    typename Container::iterator next = c.begin();
-    while (next != c.end()) {
+    typename Container::iterator next = current;
+    while (next != c.end())
+    {
         if (*next < *current)
             current = next;
         std::advance(next, 2);
@@ -81,79 +82,82 @@ void PmergeMe::recursiveSort(Container &c)
     current = c.erase(current);
     temp.push_back(*current);
     c.erase(current);
-    
+
     recursiveSort(c);
     c.insert(c.begin(), temp.begin(), temp.end());
-    // std::swap(c.begin(), c.begin()++);
-    // recursiveMergeInsertionSort(c, c.begin(), c.end());
 }
 
+template std::list<int> PmergeMe::pendSort<std::list<int>>(std::list<int> &);
+template std::vector<int> PmergeMe::pendSort<std::vector<int>>(std::vector<int> &);
 
-template void PmergeMe::recursiveMergeInsertionSort<std::list<int>>(std::list<int>&, std::list<int>::iterator, std::list<int>::iterator);
-template void PmergeMe::recursiveMergeInsertionSort<std::vector<int>>(std::vector<int>&, std::vector<int>::iterator, std::vector<int>::iterator);
 template <typename Container>
-void PmergeMe::recursiveMergeInsertionSort(Container &c, typename Container::iterator low, typename Container::iterator high)
+Container PmergeMe::pendSort(Container &c)
 {
-    size_t size = std::distance(low, high);
-    if (size < 2)
-        return;
-
-    if (size == 2)
+    typename Container::iterator first = c.end();
+    first--;
+    Container oddContainer;
+    size_t size = c.size();
+    for (size_t i = 0; i < (size / 2); i++)
     {
-        std::cout << "low: " << *low << " high: " << *std::next(low) << std::endl;
-        if (*low > *std::next(low))
-            std::swap(*low, *std::next(low));
-        return;
+        oddContainer.insert(oddContainer.begin(), *first);
+        first = c.erase(first);
+        std::advance(first, -2);
     }
-
-    typename Container::iterator mid = low;
-    std::advance(mid, size / 2);
-
-    recursiveMergeInsertionSort(c, low, mid);
-    recursiveMergeInsertionSort(c, mid, high);
-
-    // std::cout << "low: " << *low << " mid: " << *mid << " high: " << *high << std::endl;
-
-    // Merge the two sorted halves
-    Container temp;
-    typename Container::iterator left = low;
-    typename Container::iterator right = mid;
-
-    while (left != mid && right != high)
+    std::cout << "Odd Container Values: ";
+    for (const auto &val : oddContainer)
     {
-        if (*left <= *right)
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
+    return oddContainer;
+}
+
+template void PmergeMe::insertionOrder<std::list<int>>(std::list<int> &, std::list<int>);
+template void PmergeMe::insertionOrder<std::vector<int>>(std::vector<int> &, std::vector<int>);
+template <typename Container>
+void PmergeMe::insertionOrder(Container &main, Container pend)
+{
+    std::cout << "C values: ";
+    for (typename Container::iterator it = main.begin(); it != main.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    // Step 5: Generate Jacobsthal numbers up to the size of the container
+    std::vector<int> jacobsthalNumbers;
+    jacobsthalNumbers.push_back(0);
+    jacobsthalNumbers.push_back(1);
+    int size = main.size() + pend.size();
+    for (int i = 2; jacobsthalNumbers.back() < size; i++)
+        jacobsthalNumbers.push_back(jacobsthalNumbers[i - 1] + 2 * jacobsthalNumbers[i - 2]);
+    // Step 4: Print Jacobsthal numbers
+    std::cout << "Jacobsthal Numbers: ";
+    for (const auto &num : jacobsthalNumbers)
+    {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    // Step 6: Insert the values from the pend container into the main container
+    int inserts = pend.size();
+    for (int i = 2; i < (int)jacobsthalNumbers.size() - 1; ++i)
+    {
+        int idx = jacobsthalNumbers[i];
+        std::cout << "Jacobsthal Numbers: " << jacobsthalNumbers[i] << "-" << jacobsthalNumbers[i - 1] << std::endl;
+        std::cout << "Idx: " << idx << std::endl;
+        int seq = (jacobsthalNumbers[i] - jacobsthalNumbers[i - 1]) < 1 ? 1 : jacobsthalNumbers[i] - jacobsthalNumbers[i - 1];
+        std::cout << "Ins: " << inserts << std::endl;
+        std::cout << "seq: " << seq << std::endl;
+        for (int j = idx > (int)pend.size() ? pend.size() : idx; seq > 0 && inserts > 0; j--)
         {
-            temp.push_back(*left);
-            ++left;
+            typename Container::iterator valPos = pend.begin();
+            std::advance(valPos, j - 1);
+            std::cout << *valPos << std::endl;
+            typename Container::iterator insertPos = std::lower_bound(main.begin(), main.end(), *valPos);
+            main.insert(insertPos, *valPos);
+            inserts--;
+            seq--;
+            std::cout << "j: " << j << std::endl;
         }
-        else
-        {
-            temp.push_back(*right);
-            ++right;
-        }
-    }
-
-    // Copy the remaining elements from the left half
-    while (left != mid)
-    {
-        temp.push_back(*left);
-        ++left;
-    }
-
-    // Copy the remaining elements from the right half
-    while (right != high)
-    {
-        temp.push_back(*right);
-        ++right;
-    }
-
-    // Copy the sorted elements back to the original container
-    typename Container::iterator it = low;
-    typename Container::iterator tempIt = temp.begin();
-    while (it != high)
-    {
-        *it = *tempIt;
-        ++it;
-        ++tempIt;
     }
 }
