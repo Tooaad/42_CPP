@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <list>
-#include <algorithm>
 
 #pragma once
 
@@ -22,7 +21,7 @@ public:
     void addToList(const int &val);
 
     template <typename Container>
-    void mergeInsertionSort(Container &c);
+    void recursiveSort(Container &c);
     template <typename Container>
     void recursiveMergeInsertionSort(Container &c, typename Container::iterator low, typename Container::iterator high);
     // private:

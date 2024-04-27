@@ -34,9 +34,9 @@ int main(int argc, char **argv)
     
     std::cout << std::endl;
     std::cout << std::endl;
-    // p.mergeInsertionSort(p.l);
+    p.recursiveSort(p.l);
     std::cout << std::endl;
-    p.mergeInsertionSort(p.v);
+    // p.recursiveSort(p.v);
     std::cout << std::endl;
     
     for (std::__cxx11::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
@@ -45,11 +45,10 @@ int main(int argc, char **argv)
     }
     
     std::cout << std::endl;
-
-    for (size_t i = 0; i < p.v.size(); i++)
-    {
-        std::cout << p.v[i] << " ";
-    }
+    // for (size_t i = 0; i < p.v.size(); i++)
+    // {
+    //     std::cout << p.v[i] << " ";
+    // }
 
     // std::cout << "Before:\t" << bufNumber << std::endl;
     
