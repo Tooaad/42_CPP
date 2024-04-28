@@ -22,15 +22,14 @@ public:
     void addToList(const int &val);
 
     template <typename Container>
+    void insertionSortOrder(Container &c);
+
+private:
+    template <typename Container>
     void recursiveSort(Container &c);
     template <typename Container>
     Container pendSort(Container &c);
     template <typename Container>
     void insertionOrder(Container &main, Container pend);
-    // private:
 
 };
-
-
-// Ford-Johgnson algorithm
-// Vector vs List

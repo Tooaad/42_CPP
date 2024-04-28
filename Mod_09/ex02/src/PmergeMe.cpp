@@ -58,7 +58,26 @@ void PmergeMe::addToList(const int &val)
         this->l.push_back(val);
 }
 
-// Explicit instantiation
+template void PmergeMe::insertionSortOrder<std::list<int>>(std::list<int> &);
+template void PmergeMe::insertionSortOrder<std::vector<int>>(std::vector<int> &);
+
+template <typename Container>
+void PmergeMe::insertionSortOrder(Container &c)
+{
+    int struggler = 0;
+    if (c.size() % 2 == 1)
+    {
+        struggler = c.back();
+        c.pop_back();
+    }
+    recursiveSort(c);
+    insertionOrder(c, pendSort(c));
+    if (struggler != 0) {
+        typename Container::iterator insertPos = std::lower_bound(c.begin(), c.end(), struggler);
+        c.insert(insertPos, struggler);
+    }
+}
+
 template void PmergeMe::recursiveSort<std::list<int>>(std::list<int> &);
 template void PmergeMe::recursiveSort<std::vector<int>>(std::vector<int> &);
 
@@ -103,12 +122,12 @@ Container PmergeMe::pendSort(Container &c)
         first = c.erase(first);
         std::advance(first, -2);
     }
-    std::cout << "Odd Container Values: ";
-    for (const auto &val : oddContainer)
-    {
-        std::cout << val << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "Odd Container Values: ";
+    // for (const auto &val : oddContainer)
+    // {
+    //     std::cout << val << " ";
+    // }
+    // std::cout << std::endl;
     return oddContainer;
 }
 
@@ -117,12 +136,12 @@ template void PmergeMe::insertionOrder<std::vector<int>>(std::vector<int> &, std
 template <typename Container>
 void PmergeMe::insertionOrder(Container &main, Container pend)
 {
-    std::cout << "C values: ";
-    for (typename Container::iterator it = main.begin(); it != main.end(); ++it)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "C values: ";
+    // for (typename Container::iterator it = main.begin(); it != main.end(); ++it)
+    // {
+    //     std::cout << *it << " ";
+    // }
+    // std::cout << std::endl;
 
     // Step 5: Generate Jacobsthal numbers up to the size of the container
     std::vector<int> jacobsthalNumbers;
@@ -131,33 +150,33 @@ void PmergeMe::insertionOrder(Container &main, Container pend)
     int size = main.size() + pend.size();
     for (int i = 2; jacobsthalNumbers.back() < size; i++)
         jacobsthalNumbers.push_back(jacobsthalNumbers[i - 1] + 2 * jacobsthalNumbers[i - 2]);
-    // Step 4: Print Jacobsthal numbers
-    std::cout << "Jacobsthal Numbers: ";
-    for (const auto &num : jacobsthalNumbers)
-    {
-        std::cout << num << " ";
-    }
+
+    // std::cout << "Jacobsthal Numbers: ";
+    // for (const auto &num : jacobsthalNumbers)
+    // {
+    //     std::cout << num << " ";
+    // }
     std::cout << std::endl;
     // Step 6: Insert the values from the pend container into the main container
     int inserts = pend.size();
     for (int i = 2; i < (int)jacobsthalNumbers.size() - 1; ++i)
     {
         int idx = jacobsthalNumbers[i];
-        std::cout << "Jacobsthal Numbers: " << jacobsthalNumbers[i] << "-" << jacobsthalNumbers[i - 1] << std::endl;
-        std::cout << "Idx: " << idx << std::endl;
+        // std::cout << "Jacobsthal Numbers: " << jacobsthalNumbers[i] << "-" << jacobsthalNumbers[i - 1] << std::endl;
+        // std::cout << "Idx: " << idx << std::endl;
         int seq = (jacobsthalNumbers[i] - jacobsthalNumbers[i - 1]) < 1 ? 1 : jacobsthalNumbers[i] - jacobsthalNumbers[i - 1];
-        std::cout << "Ins: " << inserts << std::endl;
-        std::cout << "seq: " << seq << std::endl;
+        // std::cout << "Ins: " << inserts << std::endl;
+        // std::cout << "seq: " << seq << std::endl;
         for (int j = idx > (int)pend.size() ? pend.size() : idx; seq > 0 && inserts > 0; j--)
         {
             typename Container::iterator valPos = pend.begin();
             std::advance(valPos, j - 1);
-            std::cout << *valPos << std::endl;
+            // std::cout << *valPos << std::endl;
             typename Container::iterator insertPos = std::lower_bound(main.begin(), main.end(), *valPos);
             main.insert(insertPos, *valPos);
             inserts--;
             seq--;
-            std::cout << "j: " << j << std::endl;
+            // std::cout << "j: " << j << std::endl;
         }
     }
 }

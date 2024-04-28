@@ -34,22 +34,23 @@ int main(int argc, char **argv)
     
     std::cout << std::endl;
     std::cout << std::endl;
-    p.recursiveSort(p.l);
-    p.insertionOrder(p.l, p.pendSort(p.l));
+    // p.recursiveSort(p.l);
+    // p.insertionOrder(p.l, p.pendSort(p.l));
     std::cout << std::endl;
-    // p.recursiveSort(p.v);
+    p.insertionSortOrder(p.v);
     std::cout << std::endl;
     
-    for (std::__cxx11::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
-    {
-        std::cout << *it << " ";
-    }
-    
-    std::cout << std::endl;
-    // for (size_t i = 0; i < p.v.size(); i++)
+    // for (std::__cxx11::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
     // {
-    //     std::cout << p.v[i] << " ";
+    //     std::cout << *it << " ";
     // }
+    
+    std::cout << std::endl;
+    for (size_t i = 0; i < p.v.size(); i++)
+    {
+        std::cout << p.v[i] << " ";
+    }
+    std::cout << std::endl;
 
     // std::cout << "Before:\t" << bufNumber << std::endl;
     
