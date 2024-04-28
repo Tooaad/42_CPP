@@ -4,6 +4,8 @@
 #include <fstream>
 #include <sstream>
 
+#pragma once
+
 class BitcoinExchange {
     private:
         std::map<std::string, double> _data;

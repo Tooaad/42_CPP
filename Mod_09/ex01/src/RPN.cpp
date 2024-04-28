@@ -33,6 +33,11 @@ RPN &RPN::operator=(const RPN &other)
 
 void RPN::compute(const std::string &token)
 {
+    if (_stack.size() < 2) {
+        throw std::runtime_error("Error, not enough operands");
+        return ;
+    }
+
     const int n1 = _stack.top();
     _stack.pop();
     int n2 = _stack.top();

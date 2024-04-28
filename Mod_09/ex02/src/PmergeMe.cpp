@@ -117,8 +117,8 @@ void PmergeMe::containerSelection(const std::string &container)
         return;
 }
 
-template void PmergeMe::insertionSortOrder<std::list<int>>(std::list<int> &);
-template void PmergeMe::insertionSortOrder<std::vector<int>>(std::vector<int> &);
+template void PmergeMe::insertionSortOrder<std::list<int> >(std::list<int> &);
+template void PmergeMe::insertionSortOrder<std::vector<int> >(std::vector<int> &);
 /**
  * @brief Performs an insertion sort on the given container in ascending order.
  *
@@ -143,8 +143,8 @@ void PmergeMe::insertionSortOrder(Container &c)
     }
 }
 
-template void PmergeMe::recursiveSort<std::list<int>>(std::list<int> &);
-template void PmergeMe::recursiveSort<std::vector<int>>(std::vector<int> &);
+template void PmergeMe::recursiveSort<std::list<int> >(std::list<int> &);
+template void PmergeMe::recursiveSort<std::vector<int> >(std::vector<int> &);
 /**
  * Sorts the elements in the given container recursively.
  * This function uses a merge sort algorithm to sort the elements.
@@ -178,8 +178,8 @@ void PmergeMe::recursiveSort(Container &c)
     c.insert(c.begin(), temp.begin(), temp.end());
 }
 
-template std::list<int> PmergeMe::pendSort<std::list<int>>(std::list<int> &);
-template std::vector<int> PmergeMe::pendSort<std::vector<int>>(std::vector<int> &);
+template std::list<int> PmergeMe::pendSort<std::list<int> >(std::list<int> &);
+template std::vector<int> PmergeMe::pendSort<std::vector<int> >(std::vector<int> &);
 /**
  * Sorts the elements in the given pend container in a descending order and returns a new container
  * containing the odd-indexed elements from the original container.
@@ -204,8 +204,8 @@ Container PmergeMe::pendSort(Container &c)
     return oddContainer;
 }
 
-template void PmergeMe::insertionOrder<std::list<int>>(std::list<int> &, std::list<int>);
-template void PmergeMe::insertionOrder<std::vector<int>>(std::vector<int> &, std::vector<int>);
+template void PmergeMe::insertionOrder<std::list<int> >(std::list<int> &, std::list<int>);
+template void PmergeMe::insertionOrder<std::vector<int> >(std::vector<int> &, std::vector<int>);
 /**
  * Creates a jacobsthal sequence and inserts elements from the 'pend' container
  * into the 'main' container following the jacobsthal sequence order.

@@ -30,18 +30,23 @@ int main(int argc, char **argv)
     std::string token;
     std::istringstream iss(expression);
 
-    while (iss >> token)
-    {
-        if (token == "+" || token == "-" || token == "*" || token == "/")
-            rpn.compute(token);
-        else
+    try {
+        while (iss >> token)
         {
-            int t = invalidToken(token);
-            if (t == -1)
-                return 1;
-            rpn.push(t);
+            if (token == "+" || token == "-" || token == "*" || token == "/") 
+                rpn.compute(token);
+            else
+            {
+                int t = invalidToken(token);
+                if (t == -1)
+                    return 1;
+                rpn.push(t);
+            }
         }
+        std::cout << "Result: " << rpn.top() << std::endl;
+    } catch (std::exception &e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
     }
-    std::cout << "Result: " << rpn.top() << std::endl;
     return 0;
 }

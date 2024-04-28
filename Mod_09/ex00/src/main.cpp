@@ -42,11 +42,18 @@ void applyExchange(BitcoinExchange &BitcoinExchange, const std::string &filename
         std::string date;
         std::string space;
         double price;
-        iss >> date >> space >> price;
-        if (dataIsValid(price, date))
-            continue;
-        double rate = BitcoinExchange.getNearestDate(date);
-        std::cout << date << " => " << price << " = " << BitcoinExchange.convert(price, rate) << std::endl;
+        try
+        {
+            iss >> date >> space >> price;
+            if (dataIsValid(price, date))
+                continue;
+            double rate = BitcoinExchange.getNearestDate(date);
+            std::cout << date << " => " << price << " = " << BitcoinExchange.convert(price, rate) << std::endl;
+        }
+        catch (std::exception &e)
+        {
+            std::cerr << "Error bad input" << std::endl;
+        }
     }
     file.close();
 }
@@ -67,4 +74,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-
