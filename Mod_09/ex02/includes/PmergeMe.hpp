@@ -2,15 +2,18 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <set>
 #include <algorithm>
 
 #pragma once
 
 class PmergeMe
 {
-public:
+private:
     std::list<int> l;
     std::vector<int> v;
+    float vectorTime;
+    float listTime;
 
 public:
     PmergeMe();
@@ -20,7 +23,11 @@ public:
 
     void addToVector(const int &val);
     void addToList(const int &val);
+    bool isUnique();
+    void printInfo(const std::string &bufNumbers);
+    double getCurrentTime();
 
+    void containerSelection(const std::string &container);
     template <typename Container>
     void insertionSortOrder(Container &c);
 

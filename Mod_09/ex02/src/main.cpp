@@ -15,10 +15,16 @@ int main(int argc, char **argv)
         int num;
         try {
             num = std::stoi(argv[i]);
-            if (num < 1)
+            if (num < 0)
                 throw std::invalid_argument("Error");
 
         } catch (std::invalid_argument &e) {
+            std::cerr << "Error" << std::endl;
+            return 1;
+        } catch (std::out_of_range &e) {
+            std::cerr << "Error" << std::endl;
+            return 1;
+        } catch (std::exception &e) {
             std::cerr << "Error" << std::endl;
             return 1;
         }
@@ -27,35 +33,15 @@ int main(int argc, char **argv)
         p.addToList(num);
     }
 
-    // Maybe overwrite unique so it returns a boolean and throw an error
-    // p.l.unique();
-    // p.v.erase(std::unique(p.v.begin(), p.v.end()), p.v.end());
-
-    
-    std::cout << std::endl;
-    std::cout << std::endl;
-    // p.recursiveSort(p.l);
-    // p.insertionOrder(p.l, p.pendSort(p.l));
-    std::cout << std::endl;
-    p.insertionSortOrder(p.v);
-    std::cout << std::endl;
-    
-    // for (std::__cxx11::list<int>::iterator it = p.l.begin(); it != p.l.end(); ++it)
-    // {
-    //     std::cout << *it << " ";
-    // }
-    
-    std::cout << std::endl;
-    for (size_t i = 0; i < p.v.size(); i++)
+    if (!p.isUnique())
     {
-        std::cout << p.v[i] << " ";
+        std::cerr << "Error, list must be unique" << std::endl;
+        return 1;
     }
-    std::cout << std::endl;
-
-    // std::cout << "Before:\t" << bufNumber << std::endl;
     
-
-
+    p.containerSelection("list");
+    p.containerSelection("vector");
+    p.printInfo(bufNumber);
 
     return 0;
 }
